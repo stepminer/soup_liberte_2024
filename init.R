@@ -1,13 +1,15 @@
 # init.R
 #
-# Example R code to install packages if not already installed
+# R code to install packages if not already installed
 #
 
-my_packages = c("dplyr", "ggplot2","plotly","shiny","leaflet","readr")
+options(repos = c(CRAN = "https://cran.rstudio.com/"))
+
+my_packages = c("dplyr", "ggplot2", "plotly", "leaflet", "readr")
 
 install_if_missing = function(p) {
   if (p %in% rownames(installed.packages()) == FALSE) {
-    install.packages(p, clean=TRUE, quiet=TRUE)
+    install.packages(p, clean = TRUE, quiet = TRUE)
   }
 }
 
