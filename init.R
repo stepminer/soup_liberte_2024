@@ -4,5 +4,5 @@
 #
 
  
-helpers.installPackages("dplyr", "ggplot2", "leaflet", "readr")
+helpers.installPackages("dplyr", "ggplot2","shiny", "leaflet", "readr")
 
