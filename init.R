@@ -3,10 +3,7 @@
 # R code to install packages if not already installed
 #
 
-options(repos = c(CRAN = "https://cran.rstudio.com/"))
-install.packages("leaflet", repos = "https://cran.rstudio.com/")
-
-
+ install.packages("leaflet", repos = "https://cran.rstudio.com/")
 my_packages = c("dplyr", "ggplot2", "plotly", "leaflet", "readr")
 
 install_if_missing = function(p) {
