@@ -14,7 +14,7 @@
 #
 # Example R code to install packages if not already installed
 #
-devtools::install_github('rstudio/leaflet')
+install_github('rstudio/leaflet')
 my_packages = c('dplyr', 'ggplot2','leaflet', 'readr')
 
 install_if_missing = function(p) {
