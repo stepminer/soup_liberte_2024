@@ -7,14 +7,14 @@
 
 # Or Github version
 #if (!require('devtools')) install.packages('devtools')
-
+#devtools::install_github('rstudio/leaflet')
  
 #helpers.installPackages('dplyr', 'ggplot2','shiny', 'leaflet', 'readr')
 # init.R
 #
 # Example R code to install packages if not already installed
 #
-install_github('rstudio/leaflet')
+
 my_packages = c('dplyr', 'ggplot2','leaflet', 'readr')
 
 install_if_missing = function(p) {
