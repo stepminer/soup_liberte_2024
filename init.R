@@ -3,14 +3,14 @@
 # R code to install packages if not already installed
 #
 # CRAN version
- apt-get install -y make          
- apt-get install -y pandoc        
- apt-get install -y libpng-dev     
- apt-get install -y libgdal-dev    
- apt-get install -y gdal-bin      
- apt-get install -y libgeos-dev   
- apt-get install -y libproj-dev   
- apt-get install -y libsqlite3-dev 
+ apt-get install   make          
+ apt-get install   pandoc        
+ apt-get install   libpng-dev     
+ apt-get install   libgdal-dev    
+ apt-get install   gdal-bin      
+ apt-get install   libgeos-dev   
+ apt-get install   libproj-dev   
+ apt-get install   libsqlite3-dev 
 
 
 
