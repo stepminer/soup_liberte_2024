@@ -19,7 +19,7 @@ my_packages = c('dplyr', 'ggplot2','leaflet', 'readr')
 
 install_if_missing = function(p) {
   if (p %in% rownames(installed.packages()) == FALSE) {
-    install.packages(p, clean=TRUE, quiet=TRUE)
+    install.packages(p, clean=TRUE, quiet=FALSE)
   }
 }
 
