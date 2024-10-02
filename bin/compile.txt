@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Add PostgreSQL repository for Ubuntu 22.04 (Jammy)
+echo "deb http://apt.postgresql.org/pub/repos/apt/ jammy-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list
+
+# Import the repository key
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+
+# Continue with normal build process
+
