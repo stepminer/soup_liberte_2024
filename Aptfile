@@ -1,10 +1,4 @@
-# Add PostgreSQL repository for Ubuntu 22.04 (Jammy)
-deb http://apt.postgresql.org/pub/repos/apt/ jammy-pgdg main
-
-# Install the repository key
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-
-# Install dependencies
+ # Install dependencies
 make
 pandoc
 libpng-dev
