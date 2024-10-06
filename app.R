@@ -7,15 +7,18 @@
 #    http://shiny.rstudio.com/
 #
 
-  
-  # Load necessary libraries
+# Load necessary libraries
 library(shiny)
 library(leaflet)
 library(ggplot2)
 library(dplyr)
+library(sf)  # Modern spatial library replacing rgdal, rgeos, and maptools
 
-# Load the data
+# Load the data (make sure to update the path to your CSV file if needed)
 soup_data <- read.csv("soup_libete_2024_geo.csv")
+
+# Convert soup_data to sf object using latitude and longitude
+soup_data_sf <- st_as_sf(soup_data, coords = c("longitude", "latitude"), crs = 4326)
 
 # Define UI
 ui <- fluidPage(
@@ -54,7 +57,7 @@ server <- function(input, output, session) {
   
   # Reactive filtered data
   filtered_data <- reactive({
-    data <- soup_data
+    data <- soup_data_sf
     if (input$departement != "All") {
       data <- data %>% filter(departement == input$departement)
     }
@@ -64,14 +67,13 @@ server <- function(input, output, session) {
     data
   })
   
-  # Render map
+  # Render map using sf data
   output$soup_map <- renderLeaflet({
     data <- filtered_data()
     
     leaflet(data) %>%
       addTiles() %>%
-      addCircleMarkers(~longitude, ~latitude,
-                       radius = ~bols_soupe / 10, # Adjust the radius to be proportional to bols_soupe
+      addCircleMarkers(radius = ~bols_soupe / 10, 
                        popup = ~paste0("Responsible: ", responsible, "<br>",
                                        "Commune: ", commune, "<br>",
                                        "Bols Soupe: ", bols_soupe, "<br>",
@@ -93,9 +95,6 @@ server <- function(input, output, session) {
             legend.position = "none")
   })
 }
- 
+
 # Run the application
 shinyApp(ui = ui, server = server)
-
-  
-  
