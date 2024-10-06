@@ -1,9 +1,0 @@
- # Install dependencies
-make
-pandoc
-libpng-dev
-libgdal-dev
-gdal-bin
-libgeos-dev
-libproj-dev
-libsqlite3-dev
